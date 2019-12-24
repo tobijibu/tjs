@@ -1,12 +1,93 @@
-<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><title>Introduction | t.js - にほんご。</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta property="og:title" content="Introduction | t.js - にほんご。"><meta property="og:url"><meta property="og:type" content="article"><link rel="icon" href="https://tr.you84815.space/tjs/favicon.ico"><link rel="stylesheet" href="./css/main.css"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-106478577-1', 'auto');</script></head><body><div id="container"><header><div class="icon"><a class="no-barba" href="https://tr.you84815.space/"><svg width="16" height="16"><rect width="16" height="16" fill="#e0e0e0"></rect></svg></a></div><div class="navi_toggle" onclick="toggleMenu()"><svg id="menu_close" width="24" height="24" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg><svg id="menu_open" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></div><div class="title">t.js - <a class="no-barba" href="https://tr.you84815.space/">にほんご。</a></div></header><div class="navi" id="navi"><ul class="menu"><li><a class="index" href="./index.html">Home</a></li><li><a class="introduction active" href="./introduction.html">Introduction</a><ul id="introduction"><li><a href="./introduction.html#features">Features</a></li><li><a href="./introduction.html#usage">How to use</a></li></ul></li></ul></div><div id="content"><div id="main"><div id="barba-wrapper"><div class="barba-container"><h1>Introduction</h1><div id="update_date"><span>更新日: 2018.09.14
-</span></div><h2 id="introduction">gzipで400byte以下の小さなJavaScriptテンプレートフレームワーク</h2><p><code>t.js</code>は、<code>innerHTML</code>を使ってDOMにhtmlを挿入するシンプルなライブラリです。</p><h2 id="features">特徴</h2><ul><li>単純な補間(タグをエスケープしません) : <code>{{=value}}</code></li><li>エスケープして補間 : <code>{{%unsafe_value}}</code></li><li>名前空間を使う : <code>{{=User.address.city}}</code></li><li>if/else構文 : <code>{{value}} &#x3C;&#x3C;markup&#x3E;&#x3E; {{:value}} &#x3C;&#x3C;alternate markup&#x3E;&#x3E; {{/value}}</code></li><li>unless構文 : <code>{{!value}} &#x3C;&#x3C;markup&#x3E;&#x3E; {{/!value}}</code></li><li>オブジェクト/配列の繰り返し : <code>{{@object_value}} {{=_key}}:{{=_val}} {{/@object_value}}</code></li><li>複数行テンプレートを指定することができます。(必要な改行は削除せずにそのまま記述してください。)</li><li>同じテンプレートを別の値で複数回レンダリング可能です。</li><li>全てのモダンブラウザで動作します。</li></ul><h2 id="usage">使い方</h2><p>ファイルをダウンロードしてHTMLで<code>t.min.js</code>を読み込みます。</p><pre><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"t.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre><br><p>そして以下のように指定します。</p><pre><code><span class="hljs-keyword">var</span> template = <span class="hljs-keyword">new</span> t(<span class="hljs-string">"&lt;div&gt;Hello {{=name}}&lt;/div&gt;"</span>);
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Introduction | t.js - にほんご。</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta property="og:title" content="Introduction | t.js - にほんご。">
+    <meta property="og:url">
+    <meta property="og:type" content="article">
+    <link rel="icon" href="https://tr.you84815.space/tjs/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+    <link id="theme_style" rel="stylesheet" type="text/css" href="">
+    <script id="srcTheme" src="./js/toggleTheme.js" data-dir="tjs"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-106478577-1', 'auto');
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <header>
+        <div class="icon"><a class="no-barba" href="https://tr.you84815.space/">
+            <svg width="16" height="16">
+              <rect width="16" height="16" fill="#e0e0e0"></rect>
+            </svg></a></div>
+        <div class="navi_toggle" onclick="toggleMenu()">
+          <svg id="menu_close" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
+            <path d="M0 0h24v24H0z" fill="none"></path>
+          </svg>
+          <svg id="menu_open" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+          </svg>
+        </div>
+        <div class="title">t.js - <a class="no-barba" href="https://tr.you84815.space/">にほんご。</a></div><span id="toggleTheme">
+          <svg role="img" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path d="M8 256c0 136.966 111.033 248 248 248s248-111.034 248-248S392.966 8 256 8 8 119.033 8 256zm248 184V72c101.705 0 184 82.311 184 184 0 101.705-82.311 184-184 184z"></path>
+          </svg></span>
+      </header>
+      <div class="navi" id="navi">
+        <ul class="menu">
+          <li><a class="index" href="./index.html">Home</a></li>
+          <li><a class="introduction active" href="./introduction.html">Introduction</a>
+            <ul id="introduction">
+              <li><a href="./introduction.html#features">Features</a></li>
+              <li><a href="./introduction.html#usage">How to use</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div id="content">
+        <div id="main">
+          <div id="barba-wrapper">
+            <div class="barba-container">
+              <h1>Introduction</h1>
+              <div id="update_date"><span>更新日: 2018.09.14
+</span>
+              </div>
+              <h2 id="introduction">gzipで400byte以下の小さなJavaScriptテンプレートフレームワーク</h2>
+              <p><code>t.js</code>は、<code>innerHTML</code>を使ってDOMにhtmlを挿入するシンプルなライブラリです。</p>
+              <h2 id="features">特徴</h2>
+              <ul>
+                <li>単純な補間(タグをエスケープしません) : <code>{{=value}}</code></li>
+                <li>エスケープして補間 : <code>{{%unsafe_value}}</code></li>
+                <li>名前空間を使う : <code>{{=User.address.city}}</code></li>
+                <li>if/else構文 : <code>{{value}} &#x3C;&#x3C;markup&#x3E;&#x3E; {{:value}} &#x3C;&#x3C;alternate markup&#x3E;&#x3E; {{/value}}</code></li>
+                <li>unless構文 : <code>{{!value}} &#x3C;&#x3C;markup&#x3E;&#x3E; {{/!value}}</code></li>
+                <li>オブジェクト/配列の繰り返し : <code>{{@object_value}} {{=_key}}:{{=_val}} {{/@object_value}}</code></li>
+                <li>複数行テンプレートを指定することができます。(必要な改行は削除せずにそのまま記述してください。)</li>
+                <li>同じテンプレートを別の値で複数回レンダリング可能です。</li>
+                <li>全てのモダンブラウザで動作します。</li>
+              </ul>
+              <h2 id="usage">使い方</h2>
+              <p>ファイルをダウンロードしてHTMLで<code>t.min.js</code>を読み込みます。</p>
+              <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"t.min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre><br>
+              <p>そして以下のように指定します。</p>
+              <pre><code><span class="hljs-keyword">var</span> template = <span class="hljs-keyword">new</span> t(<span class="hljs-string">"&lt;div&gt;Hello {{=name}}&lt;/div&gt;"</span>);
 <span class="hljs-built_in">document</span>.body.innerHtml = template.render({<span class="hljs-attr">name</span>: <span class="hljs-string">"World!"</span>});
-</code></pre><p>より高度な使い方は、<a href="https://github.com/jasonmoo/t.js/blob/master/t_test.html" target="_blank" rel="noopener noreferrer">t_test.html</a>を確認してください。</p><br><h3>デモ</h3><p>それぞれの構文を使ってHTMLを生成します。 <b>太字</b>が補間の結果です。<br>※HTMLを<code>script</code>タグ内で指定する場合は、<code>type</code>属性が必要です。</p><div id="render"></div><h5>JavaScript</h5><pre><code><span class="hljs-keyword">var</span> div = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'div'</span>);
+</code></pre>
+              <p>より高度な使い方は、<a href="https://github.com/jasonmoo/t.js/blob/master/t_test.html" target="_blank" rel="noopener noreferrer">t_test.html</a>を確認してください。</p><br>
+              <h3>デモ</h3>
+              <p>それぞれの構文を使ってHTMLを生成します。 <b>太字</b>が補間の結果です。<br>※HTMLを<code>script</code>タグ内で指定する場合は、<code>type</code>属性が必要です。</p>
+              <div id="render"></div>
+              <h5>JavaScript</h5>
+              <pre><code><span class="hljs-keyword">var</span> div = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'div'</span>);
 <span class="hljs-keyword">var</span> template = <span class="hljs-keyword">new</span> t(<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'demo'</span>).innerHTML);
 div.innerHTML = template.render({
   <span class="hljs-attr">simple_interpolation1</span>: <span class="hljs-string">'文字列を挿入しました。'</span>,
@@ -33,7 +114,9 @@ div.innerHTML = template.render({
   }
 });
 <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'render'</span>).appendChild(div);
-</code></pre><h5>HTML</h5><pre><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"demo"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"t/template"</span>&gt;</span><span class="handlebars"><span class="xml">
+</code></pre>
+              <h5>HTML</h5>
+              <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"demo"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"t/template"</span>&gt;</span><span class="handlebars"><span class="xml">
   <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
       単純な補間 :<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
@@ -58,21 +141,21 @@ div.innerHTML = template.render({
       変数が定義されていれば表示<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
       </span><span class="hljs-template-variable">{{ifelse.disp}}</span><span class="xml">
         <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span></span><span class="hljs-template-variable">{{=ifelse.disp}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
-      </span><span class="hljs-template-tag">{{/<span class="hljs-name">ifelse.disp</span>}}</span><span class="xml">
+      </span><span class="hljs-template-tag">{{/<span class="hljs-name">ifelse</span>.disp}}</span><span class="xml">
       <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
       変数が定義されていれば表示、未定義なら未定義文言を表示<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
       </span><span class="hljs-template-variable">{{ifelse.nodisp}}</span><span class="xml">
         <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span></span><span class="hljs-template-variable">{{=ifelse.disp}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
       </span><span class="hljs-template-variable">{{:ifelse.nodisp}}</span><span class="xml">
         <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>ifelse.nodispは未定義です。<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
-      </span><span class="hljs-template-tag">{{/<span class="hljs-name">ifelse.nodisp</span>}}</span><span class="xml">
+      </span><span class="hljs-template-tag">{{/<span class="hljs-name">ifelse</span>.nodisp}}</span><span class="xml">
     <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
       unless構文 :<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
       変数が未定義なら表示<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
       </span><span class="hljs-comment">{{!unless.nodisp}}</span><span class="xml">
         <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>unless.nodispは未定義です。<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
-      </span><span class="hljs-template-tag">{{/!<span class="hljs-name"><span class="hljs-builtin-name">unless</span>.nodisp</span>}}</span><span class="xml">
+      </span><span class="hljs-template-tag">{{/!<span class="hljs-name"><span class="hljs-builtin-name">unless</span></span>.nodisp}}</span><span class="xml">
     <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
       オブジェクト/配列の繰り返し :<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
@@ -80,104 +163,130 @@ div.innerHTML = template.render({
       <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
       </span><span class="hljs-template-variable">{{@iteration.arr}}</span><span class="xml">
         <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>[</span><span class="hljs-template-variable">{{=_key}}</span><span class="xml">] </span><span class="hljs-template-variable">{{=_val}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-      </span><span class="hljs-template-tag">{{/@<span class="hljs-name">iteration.arr</span>}}</span><span class="xml">
+      </span><span class="hljs-template-tag">{{/@<span class="hljs-name">iteration</span>.arr}}</span><span class="xml">
       <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
       オブジェクトの繰り返し<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
       </span><span class="hljs-template-variable">{{@iteration.obj}}</span><span class="xml">
         <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>[</span><span class="hljs-template-variable">{{=_key}}</span><span class="xml">] </span><span class="hljs-template-variable">{{=_val.id}}</span><span class="xml">:</span><span class="hljs-template-variable">{{=_val.text}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-      </span><span class="hljs-template-tag">{{/@<span class="hljs-name">iteration.obj</span>}}</span><span class="xml">
+      </span><span class="hljs-template-tag">{{/@<span class="hljs-name">iteration</span>.obj}}</span><span class="xml">
       <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
 </span></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-</code></pre><br><script id="demo" type="t/template"><ul>
-  <li>
-    単純な補間 :<br>
-    <b>{{=simple_interpolation1}}</b><br>
-    <b>{{=simple_interpolation2}}</b><br>
-    <p class="note">※タグをエスケープしません。</p>
-  </li>
-  <li>
-    エスケープして補間 :<br>
-    <b>{{%scrubbed_interpolation}}</b><br>
-    <p class="note">※タグをエスケープします。</p>
-  </li>
-  <li>
-    名前空間を使う :<br>
-    <b>{{=name.interpolation}}</b><br>
-    <p class="note">※タグをエスケープしません。</p>
-    <b>{{%name.interpolation}}</b><br>
-    <p class="note">※タグをエスケープします。</p>
-  </li>
-  <li>
-    if/else構文 :<br>
-    変数が定義されていれば表示<br>
-    {{ifelse.disp}}
-      <b>{{=ifelse.disp}}</b><br>
-    {{/ifelse.disp}}
-    <br>
-    変数が定義されていれば表示、未定義なら未定義文言を表示<br>
-    {{ifelse.nodisp}}
-      <b>{{=ifelse.disp}}</b><br>
-    {{:ifelse.nodisp}}
-      <b>ifelse.nodispは未定義です。</b><br>
-    {{/ifelse.nodisp}}
-  </li>
-  <li>
-    unless構文 :<br>
-    変数が未定義なら表示<br>
-    {{!unless.nodisp}}
-      <b>unless.nodispは未定義です。</b><br>
-    {{/!unless.nodisp}}
-  </li>
-  <li>
-    オブジェクト/配列の繰り返し :<br>
-    配列の繰り返し<br>
-    <ul>
-    {{@iteration.arr}}
-      <li><b>[{{=_key}}] {{=_val}}</b></li>
-    {{/@iteration.arr}}
-    </ul>
-    <br>
-    オブジェクトの繰り返し<br>
-    <ul>
-    {{@iteration.obj}}
-      <li><b>[{{=_key}}] {{=_val.id}}:{{=_val.text}}</b></li>
-    {{/@iteration.obj}}
-    </ul>
-  </li>
-</ul>
-</script><script class="load">createObj = function() {
-  if (document.getElementById('demo')) {
-    var div = document.createElement('div');
-    var template = new t(document.getElementById('demo').innerHTML);
-    div.innerHTML = template.render({
-      simple_interpolation1: '文字列を挿入しました。',
-      simple_interpolation2: '<span style="color:#ff6384">文字の色を変えています。</span>',
-      scrubbed_interpolation: '<span style="color:#ff6384">文字の色は変わりません。</span>',
-      name: {
-        interpolation: '<span style="color:#36a2eb">名前空間を使って補間します。</span>',
-      },
-      ifelse: {
-        disp: 'ifelse.dispは定義されています。',
-      },
-      unless: {
-        disp: 'unless.dispは定義されています。',
-      },
-      iteration: {
-        arr: [
-          '要素1', '要素2', '要素3',
-        ],
-        obj: [
-          {id: 1, text: '要素a'},
-          {id: 2, text: '要素b'},
-          {id: 3, text: '要素c'},
-        ],
-      }
-    });
-    document.getElementById('render').appendChild(div);
-  }
-};</script><br><div class="license"><p>&copy; 2012
- Jason Mooberry Released under the <a href="https://github.com/jasonmoo/t.js/blob/master/LICENSE">MIT license</a></p><p>このコンテンツはJason Mooberry(jasonmoo)による<a href="https://github.com/jasonmoo/t.js">t.jsのREADME</a>を翻訳/改変したものです。</p></div></div></div></div></div><footer><span> &copy; <span id="copy_year">2017</span> tobijibu</span></footer></div><noscript id="deferred-styles"><link href="./css/lazy.css" rel="stylesheet"></noscript><script src="./js/main.js" defer></script><script src="./js/t.min.js"></script><div id="src" hidden></div></body></html>
+</code></pre><br>
+              <script id="demo" type="t/template">
+                <ul>
+                  <li>
+                    単純な補間 :<br>
+                    <b>{{=simple_interpolation1}}</b><br>
+                    <b>{{=simple_interpolation2}}</b><br>
+                    <p class="note">※タグをエスケープしません。</p>
+                  </li>
+                  <li>
+                    エスケープして補間 :<br>
+                    <b>{{%scrubbed_interpolation}}</b><br>
+                    <p class="note">※タグをエスケープします。</p>
+                  </li>
+                  <li>
+                    名前空間を使う :<br>
+                    <b>{{=name.interpolation}}</b><br>
+                    <p class="note">※タグをエスケープしません。</p>
+                    <b>{{%name.interpolation}}</b><br>
+                    <p class="note">※タグをエスケープします。</p>
+                  </li>
+                  <li>
+                    if/else構文 :<br>
+                    変数が定義されていれば表示<br>
+                    {{ifelse.disp}}
+                      <b>{{=ifelse.disp}}</b><br>
+                    {{/ifelse.disp}}
+                    <br>
+                    変数が定義されていれば表示、未定義なら未定義文言を表示<br>
+                    {{ifelse.nodisp}}
+                      <b>{{=ifelse.disp}}</b><br>
+                    {{:ifelse.nodisp}}
+                      <b>ifelse.nodispは未定義です。</b><br>
+                    {{/ifelse.nodisp}}
+                  </li>
+                  <li>
+                    unless構文 :<br>
+                    変数が未定義なら表示<br>
+                    {{!unless.nodisp}}
+                      <b>unless.nodispは未定義です。</b><br>
+                    {{/!unless.nodisp}}
+                  </li>
+                  <li>
+                    オブジェクト/配列の繰り返し :<br>
+                    配列の繰り返し<br>
+                    <ul>
+                    {{@iteration.arr}}
+                      <li><b>[{{=_key}}] {{=_val}}</b></li>
+                    {{/@iteration.arr}}
+                    </ul>
+                    <br>
+                    オブジェクトの繰り返し<br>
+                    <ul>
+                    {{@iteration.obj}}
+                      <li><b>[{{=_key}}] {{=_val.id}}:{{=_val.text}}</b></li>
+                    {{/@iteration.obj}}
+                    </ul>
+                  </li>
+                </ul>
+                
+              </script>
+              <script class="load">
+                createObj = function() {
+                  if (document.getElementById('demo')) {
+                    var div = document.createElement('div');
+                    var template = new t(document.getElementById('demo').innerHTML);
+                    div.innerHTML = template.render({
+                      simple_interpolation1: '文字列を挿入しました。',
+                      simple_interpolation2: '<span style="color:#ff6384">文字の色を変えています。</span>',
+                      scrubbed_interpolation: '<span style="color:#ff6384">文字の色は変わりません。</span>',
+                      name: {
+                        interpolation: '<span style="color:#36a2eb">名前空間を使って補間します。</span>',
+                      },
+                      ifelse: {
+                        disp: 'ifelse.dispは定義されています。',
+                      },
+                      unless: {
+                        disp: 'unless.dispは定義されています。',
+                      },
+                      iteration: {
+                        arr: [
+                          '要素1', '要素2', '要素3',
+                        ],
+                        obj: [
+                          {id: 1, text: '要素a'},
+                          {id: 2, text: '要素b'},
+                          {id: 3, text: '要素c'},
+                        ],
+                      }
+                    });
+                    document.getElementById('render').appendChild(div);
+                  }
+                };
+              </script><br>
+              <div class="license">
+                <p>
+                  &copy; 2012
+                   Jason Mooberry Released under the <a href="https://github.com/jasonmoo/t.js/blob/master/LICENSE">MIT license</a>
+                </p>
+                <p>このコンテンツはJason Mooberry(jasonmoo)による<a href="https://github.com/jasonmoo/t.js">t.jsのREADME</a>を翻訳/改変したものです。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer><span>&copy; <span id="copy_year">2017</span> tobijibu</span></footer>
+    </div>
+    <noscript id="deferred-styles">
+      <link href="./css/lazy.css" rel="stylesheet">
+    </noscript>
+    <script src="./js/main.js" defer></script>
+    <script src="./js/t.min.js"></script>
+    <div id="src" hidden></div>
+  </body>
+</html>
